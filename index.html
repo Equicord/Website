@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Equicord</title>
+  <link rel="icon" href="https://i.ibb.co/3FJ2gq2/150590884.png">
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      text-align: center;
+      background-color: #5ce1e6;
+      color: #ffffff;
+      opacity: 0;  /* Start with opacity set to 0 */
+      transition: opacity 0.5s ease;  /* Define transition effect */
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .logo {
+      margin-bottom: 20px;
+    }
+    .download-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      background-color: #5ce1e6;
+      color: #ffffff;
+      text-decoration: none;
+      border: 2px solid #ffffff;
+      outline: 2px solid #5ce1e6;
+      opacity: 0;  /* Start with opacity set to 0 */
+      transform: translateY(-20px);  /* Start positioned slightly above */
+      transition: opacity 0.5s ease, transform 0.5s ease;  /* Define transition effects */
+    }
+    .top-bar {
+      background-color: #5ce1e6;
+    }
+
+    /* Fade-in and slide-down animation when element becomes visible */
+    .fade-slide-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.ibb.co/3FJ2gq2/150590884.png" alt="Equicord Logo" class="logo">
+    <h1>Welcome to Equicord!</h1>
+    <p>Discover the power of Equicord and download now.</p>
+    <a href="/Website/download" class="download-btn">Download Now</a>
+    <br>
+    <a href="https://github.com/Equicord/Equicord" class="download-btn">View on GitHub</a>
+    <br>
+    <a href="https://discord.com/invite/5Xh2W87egW" class="download-btn">Join Support Server</a>
+  </div>
+
+  <script>
+    // Add event listener to trigger fade-in and slide-down animation when the page loads
+    window.addEventListener('load', function() {
+      document.body.classList.add('fade-slide-in');
+      var downloadBtns = document.querySelectorAll('.download-btn');
+      for (var i = 0; i < downloadBtns.length; i++) {
+        downloadBtns[i].classList.add('fade-slide-in');
+      }
+    });
+    
+    // Check if the current URL is not one of the allowed paths
+    if (
+      !/\/Website(\/index\.html|\/download\.html)?$/.test(window.location.pathname) &&
+      window.location.pathname !== "/download"
+    ) {
+      // Redirect to /website/index.html
+      window.location.href = "/Website/index.html";
+    }
+  </script>
+</body>
+</html>
